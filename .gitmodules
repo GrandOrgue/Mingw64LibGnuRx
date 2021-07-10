@@ -1,0 +1,3 @@
+[submodule "submodules/LibGnuRx"]
+	path = submodules/LibGnuRx
+	url = https://github.com/TimothyGu/libgnurx.git
