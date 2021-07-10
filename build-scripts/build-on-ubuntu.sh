@@ -10,7 +10,7 @@ VERSION=${1:-2.6.1}
 BUILD_VERSION=${2:-0.os}
 
 
-BUILD_DIR=`pwd`/build/win64
+BUILD_DIR=`pwd`/build
 mkdir -p $BUILD_DIR
 
 pushd $BUILD_DIR
@@ -29,7 +29,17 @@ $SRC_DIR/submodules/LibGnuRx/configure --host=x86_64-w64-mingw32 --prefix=$PKG_D
 make $PARALLEL_PRMS
 
 make install
-cp -r $SRC_DIR/build-scripts/DEBIAN $PKG_DIR
+mkdir $PKG_DIR/DEBIAN
+
+cat >$PKG_DIR/DEBIAN/control <<EOF
+Package: $DEBIAN_PKG_NAME
+Version: $VERSION
+Revision: $BUILD_VERSION
+Architecture: all
+Maintainer: Oleg Samarin <osamarin68@gmail.com>
+Description: This is the regex functionality from glibc 2.5 extracted into a separate library, for Win64
+EOF
+
 dpkg-deb --build --root-owner-group $PKG_DIR
 
 popd
