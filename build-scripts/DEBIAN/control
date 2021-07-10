@@ -1,0 +1,6 @@
+Package: libgnurx-mingw-w64
+Version: 2.6.1
+Revision: 0.os
+Architecture: all
+Maintainer: Oleg Samarin <osamarin68@gmail.com>
+Description: This is the regex functionality from glibc 2.5 extracted into a separate library, for Win64
