@@ -77,7 +77,7 @@ jobs:
       uses: nanoufo/action-upload-artifacts-and-release-assets@v1.4
       with:
         path: |
-          ${{github.workspace}}/build/*${{needs.calc_ver.outputs.full_ver}}*.deb
+          ${{github.workspace}}/build/libgnurx-mingw-w64_${{needs.calc_ver.outputs.full_ver}}_all.deb
         upload-release-files: ${{ needs.calc_ver.outputs.release_flag }}
         release-upload-url: ${{ needs.calc_ver.outputs.release_upload_url }}
         if-no-files-found: error
